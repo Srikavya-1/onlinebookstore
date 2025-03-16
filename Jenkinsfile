@@ -40,7 +40,7 @@ steps{
 post{
     success{
 
-        archiveArtifacts artifacts: '**target/*.jar'
+        archiveArtifacts artifacts: '**target/*.war'
     }
 }
 
@@ -58,7 +58,7 @@ stage('Deploy to tomcat server'){
 
 steps{
 
-  deploy adapters: [tomcat9(credentialsId: 'tomcat9credentials', path: '', url: 'http://localhost:8080/')], contextPath: 'IfocusSolutions', jar: '**/*.jar'
+  deploy adapters: [tomcat9(credentialsId: 'tomcat9credentials', path: '', url: 'http://localhost:8080/')], contextPath: 'IfocusSolutions', war: '**/*.war'
 
 }
 }
